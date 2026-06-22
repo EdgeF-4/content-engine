@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "content-engine"
+version = "0.1.0"
+description = "Script plus voiceover to a rendered video."
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31"]
+
+[tool.setuptools]
+packages = ["content_engine"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"

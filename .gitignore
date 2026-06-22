@@ -1,0 +1,26 @@
+# secrets — keys live here, never committed
+config.json
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.egg-info/
+
+# node
+node_modules/
+remotion/node_modules/
+electron/node_modules/
+dist/
+out/
+
+# work + render artifacts
+work/
+remotion/public/render-assets/
+remotion/public/vo/
+*.mp4
+!examples/*.mp4
+
+# os
+.DS_Store

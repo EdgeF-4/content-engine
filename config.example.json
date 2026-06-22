@@ -1,0 +1,42 @@
+{
+  "_comment": "Copy to config.json (chmod 600) and add your keys. Empty keys fall back to the next provider, then to the built-in heuristic so the pipeline always runs.",
+  "providers": {
+    "nim": {
+      "base_url": "https://integrate.api.nvidia.com/v1",
+      "api_key": "",
+      "models": {
+        "planner": "zai-org/glm-4.6",
+        "qc": "deepseek-ai/deepseek-v3.1"
+      }
+    },
+    "anthropic": {
+      "base_url": "https://api.anthropic.com",
+      "api_key": "",
+      "model": "claude-opus-4-8",
+      "max_tokens": 4096
+    },
+    "gemini": {
+      "base_url": "https://generativelanguage.googleapis.com",
+      "api_key": "",
+      "model": "gemini-2.0-flash"
+    }
+  },
+  "roles": {
+    "scene_planning": { "primary": "anthropic", "fallback": "nim" },
+    "qc": { "primary": "gemini", "fallback": "nim" }
+  },
+  "sourcing": {
+    "image_provider": "pexels",
+    "video_provider": "pexels",
+    "pexels": { "api_key": "" },
+    "pixabay": { "api_key": "" }
+  },
+  "render": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "test_width": 640,
+    "test_height": 360,
+    "test_fps": 24
+  }
+}
