@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; img-src 'self' data:; media-src 'self' file:; style-src 'self' 'unsafe-inline';" />
+    <title>Content Engine</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Content Engine</h1>
+      <p class="tagline">Script plus voiceover to a finished video.</p>
+    </header>
+
+    <main>
+      <section class="pickers">
+        <button id="pick-script" class="picker">
+          <span class="picker-label">Script</span>
+          <span id="script-name" class="picker-value">Choose a .txt file</span>
+        </button>
+        <button id="pick-vo" class="picker">
+          <span class="picker-label">Voiceover</span>
+          <span id="vo-name" class="picker-value">Choose an audio file</span>
+        </button>
+      </section>
+
+      <section class="options">
+        <label><input type="checkbox" id="opt-test" checked /> Quick preview (small size)</label>
+        <label><input type="checkbox" id="opt-offline" /> Offline (placeholder visuals)</label>
+        <label><input type="checkbox" id="opt-nollm" /> Built in planner only</label>
+      </section>
+
+      <section class="go-row">
+        <button id="go" class="go" disabled>Make video</button>
+        <span id="status" class="status"></span>
+      </section>
+
+      <section class="progress">
+        <pre id="log" aria-live="polite"></pre>
+      </section>
+
+      <section id="result" class="result hidden">
+        <video id="preview" controls></video>
+        <div class="result-actions">
+          <button id="open">Open video</button>
+          <button id="reveal">Show in folder</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

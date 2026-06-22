@@ -1,0 +1,28 @@
+{
+  "name": "content-engine-desktop",
+  "version": "0.1.0",
+  "description": "Desktop shell for Content Engine: drop in a script and a voiceover, get a video.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "smoke": "CE_SMOKE=1 electron . --no-sandbox",
+    "dist:win": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "co.contentengine.desktop",
+    "productName": "Content Engine",
+    "files": ["main.js", "preload.js", "renderer/**"],
+    "win": {
+      "target": "nsis",
+      "artifactName": "ContentEngine-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
